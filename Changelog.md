@@ -1,5 +1,117 @@
 # Changelog for Fluent.Ribbon
 
+## 4.0.3
+
+- ### Bug fixes
+  - Fixes issues with window border on Windows 7 and Windows 8
+
+## 4.0.2
+
+- ### Bug fixes
+  - [#294](../../issues/294) - Issues with default style and OverridesDefaultStyle
+
+## 4.0.1
+
+- ### Bug fixes
+  - [#293](../../issues/293) - ArgumentNullException in BackstageTabControl while trying to find the selected tab
+
+## 4.0.0
+
+- ### Notices
+  - **As of now the Office 2010 and Windows 8 themes will be removed in version 5.0. You can vote for this at [Future direction of this library](../../issues/282).**
+
+- ### Breaking changes
+  - New nuget dependency: [ControlzEx](https://www.nuget.org/packages/ControlzEx). So don't forget to add ControlzEx.dll to your distribution/setup.
+  - BorderlessWindowBehavior was replaced by WindowChromeBehavior from [ControlzEx](https://github.com/ControlzEx/ControlzEx).
+    This also removes the dependency Microsoft.Windows.Shell as ControlzEx contains everything we need to use WindowChrome.
+    This behavior is initialized in code behind (InitializeWindowChromeBehavior) and shows which properties of RibbonWindow can be used to control the behavior.
+  - SaveWindowPosition and WindowSettingBehavior were removed [#196](../../issues/196)
+  - GlassBorderThickness was renamed to GlassFrameThickness to be consitent with WindowChrome and WindowChromeBehavior [#209](../../issues/209)
+  - FluentTest project was renamed to Fluent.Ribbon.Showcase [#212](../../issues/212)
+
+- ### Development/Contributing changes
+  - We switched to Visual Studio 2015 so we can use nameof etc. [#219](../../issues/219)
+
+- ### Bug fixes
+  - [#10](../../issues/10) - Maximising a ribbon window with DWM enabled results in it not maximising properly 
+  - [#90](../../issues/90) - Window chrome turning black during window resize.
+  - [#116](../../issues/116) - MenuItem: When the description is long the MenuItem does not expands in Width or Height, does not wrap text
+  - [#129](../../issues/129) - DontUseDwm="True" case the window corner unpainted
+  - [#146](../../issues/146) - Rendering of Office 2010 theme incorrect on Windows 10
+  - [#191](../../issues/191) - Windows 8 Theme - Blue/black margin around the window in windows 10
+  - [#210](../../issues/210) - Fix wrong dimensions assumed for WindowCaptionButtons on Windows 10 in Office2010 and Windows 8 themes
+  - [#218](../../issues/218) - Not displaying properly when maximized
+  - [#221](../../issues/221) - Office2013 theme undesired space between tabItem and its content when showing unpinned
+  - [#223](../../issues/223) - RibbonContextualTabGroup ignores Window.ResizeMode
+  - [#226](../../issues/226) - Maximising a ribbon window on Win7 "Non-Aero" Mode causes rendering issues
+  - [#228](../../issues/228) - Backstage disappears when changing DontUseDwm
+  - [#234](../../issues/234) - Disable KeyTips when Ribbon isn't Enabled
+  - [#235](../../issues/235) - Items of invisble tab are shown
+  - [#236](../../issues/236) - Window size is wrong when window is maximized, backstage is closed and window should be restored to normal size
+  - [#237](../../issues/237) - Ribbon Buttons with large text cut off a few pixels
+  - [#238](../../issues/238) - New WindowChrome does not work correctly on Windows 7
+  - [#240](../../issues/240) - Backstage closes when popup is dismissed inside backstage
+  - [#241](../../issues/241) - Keytips should be cancelled if Alt+Num0 is pressed
+  - [#244](../../issues/244) - KeyTip not working for childs of ContentPresenter
+  - [#246](../../issues/246) - Bind RibbonGroupBox.DataContext on QuickAccessToolBar (thanks to @nishy2000)
+  - [#251](../../issues/251) - Changing RibbonStatusBar height to 23 and RibbonStatusBarItem foreground to BackstageFontBrush (thanks to @maurosampietro)
+  - [#253](../../issues/253) - Icons of buttons not aligned correctly in Office 2013 theme (thanks to @floele-sp)
+  - [#254](../../issues/254) - Basic fix for KeyTips not working when focus is inside a WinForms control
+  - [#256](../../issues/256) - ComboBox items don't update properly on ItemsSource binding source collection changes
+  - [#255](../../issues/255) - Submenus don't show scroll viewer if items exceed the available space on screen (thanks to @floele-sp)
+  - [#257](../../issues/257) - Windows8 RibbonWindowTitleTextGlowBackground was missing (thanks to @maurosampietro)
+  - [#263](../../issues/263) - Changing theme from backstage is broken
+  - [#267](../../issues/267) - maximizing in Win 10
+  - [#269](../../issues/269) - Show underscore of header text on RibbonTabItem
+  - [#272](../../issues/272) - Changing RibbonThemeColorBrush does not change background of ItemsPanel in Backstage
+  - [#274](../../issues/274) - RadioButton Icon and LargeIcon
+  - [#280](../../issues/280) - Keytips of the Ribbon overlay StartScreen
+  - [#284](../../issues/284) - Overriding width of button does not work as it should
+  - [#285](../../issues/285) - MaterialDesign DialogHost issue with FluentRibbon
+  - [#291](../../issues/291) - BackStageTabItem leftmousedown event not firing
+  - OpenBackstage command was not acting on the correct backstage in a multiple backstage scenario (thanks to @maurosampietro)
+
+- ### Enhancements
+  - [#120](../../issues/120) - Adding short-cuts or additional information to Application Menu Item
+  - [#185](../../issues/185) - Major refactoring of how WindowChrome is used
+  - [#194](../../issues/194) - There should be an option to disable animations in the whole control
+  - [#205](../../issues/205) - Fluent Spinner handles Format="P0" incorrectly.
+  - [#207](../../issues/207) - Enable DragMove on unused RibbonTabControl space like in Office 2013
+  - [#230](../../issues/230) - Option to disable the "Minimize"-Ribbon Button & Behavior (thanks to @robertmuehsig)
+  - [#242](../../issues/242) - Add start screen like in office 2013 and upwards
+  - [#258](../../issues/258) - Refactoring of KeyTipService and KeyTipAdorner (merged with [#264](../../issues/264))
+
+## 3.6.1
+
+- ### Bug fixes
+
+  - [#29](../../issues/29) - Backstage flicker
+  - [#112](../../issues/112) - Backstage flicker
+  - [#192](../../issues/192) - Background of RibbonGroupBox can't be set/changed
+  - [#197](../../issues/197) - Some adaptions to better align with Office 2013
+  - [#200](../../issues/200) - KeyTips in SplitButton no longer work
+  - [#201](../../issues/201) - Cannot change Fluent.Button Icon Dynamically
+  - [#202](../../issues/202) - Center the button labels in Office 2013 theme
+  - [#206](../../issues/206) - Center alignment button inside RIbbonGroupBox
+  - [#214](../../issues/214) - Assign a StringFormat binding to a RibbonGroupBox Header
+
+Commits: [v3.6.0...v3.6.1](../../compare/v3.6.0...v3.6.1)
+
+## 3.6.0
+
+- ### Bug fixes
+  - [#163](../../issues/163) - ColorGallery produces Binding errors because of Binding of Color on SolidColorBrush in Fill/Background
+  - [#166](../../issues/166) - Type is mismatch for IsCheckedProperty of ToggleButton
+  - [#170](../../issues/170) - Black RibbonWindow title bar
+  - [#173](../../issues/173) - Binding Observable Collection to InRibbonGallery causes Layout Error
+  - [#178](../../issues/178) - Ribbonwindow crashes
+
+- ### Enhancements
+  - [#172](../../issues/172) - ToggleButtonHelper.OnIsCheckedChanged() accepts type of "bool?". contributed by ([nishy2000](https://github.com/nishy2000))
+  - [#175](../../issues/175) - Add "CloseOnEsc" property to Backstage to disable closing the backstage when ESC is pressed. contributed by Christoph Fink ([chrfin](https://github.com/chrfin))
+
+Commits: [c7151027f5...97001b17e9](../../compare/c7151027f5...97001b17e9)
+
 ## 3.5.1
 
 - ### Bug fixes
